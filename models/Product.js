@@ -27,6 +27,10 @@ const Product = () => {
         type: sequelize.DataTypes.STRING,
         allowNull: false,
       },
+      storeId: {
+        type: sequelize.DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+      },
     });
   } catch (err) {
     console.log(chalk.error(`Product ORM Model Error: ${err.message}`));

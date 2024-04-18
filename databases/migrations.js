@@ -22,6 +22,6 @@ const args = minimist(process.argv.slice(2), {
 
     console.log(chalk.green("Migrations completed successfully"));
   } catch (err) {
-    console.log(chalk.red(`Migration failed: ${err.message}`));
+    console.error(chalk.red(`Migration failed: ${err.message}`));
   }
 })();

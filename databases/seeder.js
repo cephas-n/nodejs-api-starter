@@ -12,6 +12,7 @@ const seeder = async () => {
     labels: "fashion,clothes,t-shirts",
     description: "awesome t-shirt",
     images: "images/test.jpg",
+    storeId: 1,
   });
 
   await Store().bulkCreate([

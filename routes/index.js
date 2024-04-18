@@ -1,16 +1,10 @@
 const express = require("express");
-const Product = require("../models/Product");
-const Store = require("../models/Store");
+const fetchAllProducts = require("../controllers/products/fetchAllProducts");
+const fetchAllStores = require("../controllers/stores/fetchAllStores");
 const router = express.Router();
 
-router.get("/products", async (req, res) => {
-  const products = await Product().findAll();
-  res.json({ products });
-});
+router.get("/products", fetchAllProducts);
 
-router.get("/stores", async (req, res) => {
-  const stores = await Store().findAll();
-  res.json({ stores });
-});
+router.get("/stores", fetchAllStores);
 
 module.exports = router;
