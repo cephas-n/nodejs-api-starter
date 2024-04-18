@@ -1,3 +1,4 @@
+const apiError = require("../../exception/apiError");
 const Product = require("../../models/Product");
 
 const updateProduct = async (req, res) => {
@@ -16,7 +17,7 @@ const updateProduct = async (req, res) => {
 
     res.send(updated);
   } catch (err) {
-    console.error(err);
+    apiError(err, res);
   }
 };
 

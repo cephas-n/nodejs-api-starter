@@ -1,3 +1,4 @@
+const apiError = require("../../exception/apiError");
 const Product = require("../../models/Product");
 
 const createProduct = async (req, res) => {
@@ -16,7 +17,7 @@ const createProduct = async (req, res) => {
 
     res.status(201).send({ product });
   } catch (err) {
-    console.error(err);
+    apiError(err, res);
   }
 };
 
