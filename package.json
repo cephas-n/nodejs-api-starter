@@ -1,0 +1,23 @@
+{
+  "name": "sequelize",
+  "version": "1.0.0",
+  "description": "simplified yetushop node js api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "migrate": "node databases/migrations.js"
+  },
+  "author": "Cephas N.",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.6",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "minimist": "^1.2.8"
+  }
+}
