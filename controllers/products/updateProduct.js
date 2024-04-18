@@ -20,6 +20,10 @@ const updateProduct = async (req, res) => {
 
     const product = await Product().findByPk(req.params.id);
 
+    if (!product) {
+      res.sendStatus(404);
+    }
+
     const updated = await product.update({
       title,
       price,
