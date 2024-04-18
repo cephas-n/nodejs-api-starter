@@ -4,7 +4,7 @@ const Product = require("../models/Product");
 const db = require("../config/db");
 const sequelize = require("sequelize");
 const minimist = require("minimist");
-const seeder = require("./seeders");
+const seeder = require("./seeder");
 
 const args = minimist(process.argv.slice(2), {
   boolean: true,
