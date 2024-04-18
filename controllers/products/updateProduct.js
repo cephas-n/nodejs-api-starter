@@ -1,4 +1,4 @@
-const apiError = require("../../exception/apiError");
+const apiError = require("../../exceptions/apiError");
 const Product = require("../../models/Product");
 const zod = require("zod");
 
