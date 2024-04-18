@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(async (req, res, next) => {
   try {
-    const connection = await db.createConnection();
+    const connection = db.createConnection();
     req.db = connection;
     return next();
   } catch (err) {
@@ -23,7 +23,7 @@ app.use(async (req, res, next) => {
 });
 
 router.get("/products", async (req, res) => {
-  const products = await (await Product()).findAll();
+  const products = await Product().findAll();
   res.json({ products });
 });
 

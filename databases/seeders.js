@@ -5,7 +5,7 @@ const Product = require("../models/Product");
 const seeder = async () => {
   // Products seeders
   console.log(chalk.yellow("Seeding products..."));
-  (await Product()).create({
+  Product().create({
     title: "T-shirt",
     price: 20,
     labels: "fashion,clothes,t-shirts",

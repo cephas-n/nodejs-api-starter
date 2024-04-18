@@ -12,9 +12,7 @@ const args = minimist(process.argv.slice(2), {
 
 (async () => {
   try {
-    await db.createConnection();
-
-    await (await Product()).sync({ force: args._.includes("fresh") });
+    await Product().sync({ force: args._.includes("fresh") });
 
     if (args.seed) {
       await seeder();

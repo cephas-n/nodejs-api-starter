@@ -1,7 +1,7 @@
 const chalk = require("chalk");
 const { Sequelize } = require("sequelize");
 
-const createConnection = async () => {
+const createConnection = () => {
   try {
     const db = new Sequelize(
       process.env.DB_DATABASE,
@@ -13,8 +13,6 @@ const createConnection = async () => {
         port: process.env.DB_PORT,
       }
     );
-
-    await db.authenticate();
 
     console.log(chalk("Database connection established"));
 

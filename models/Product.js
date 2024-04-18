@@ -2,9 +2,9 @@ const sequelize = require("sequelize");
 const db = require("../config/db");
 const chalk = require("chalk");
 
-const Product = async () => {
+const Product = () => {
   try {
-    const connection = await db.createConnection();
+    const connection = db.createConnection();
 
     return connection.define("Product", {
       title: {
