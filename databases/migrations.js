@@ -6,6 +6,7 @@ const sequelize = require("sequelize");
 const minimist = require("minimist");
 const seeder = require("./seeder");
 const Store = require("../models/Store");
+const User = require("../models/User");
 
 const args = minimist(process.argv.slice(2), {
   boolean: true,
@@ -15,6 +16,7 @@ const args = minimist(process.argv.slice(2), {
   try {
     await Product().sync({ force: args._.includes("fresh") });
     await Store().sync({ force: args._.includes("fresh") });
+    await User().sync({ force: args._.includes("fresh") });
 
     if (args.seed) {
       await seeder();
