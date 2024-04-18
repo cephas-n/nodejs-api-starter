@@ -1,4 +1,4 @@
-const sequelize = require("sequelize");
+const { DataTypes } = require("sequelize");
 const db = require("../config/db");
 const chalk = require("chalk");
 
@@ -8,32 +8,32 @@ const Product = () => {
 
     return connection.define("Product", {
       title: {
-        type: sequelize.DataTypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       price: {
-        type: sequelize.DataTypes.DOUBLE,
+        type: DataTypes.DOUBLE,
         allowNull: false,
       },
       labels: {
-        type: sequelize.DataTypes.STRING,
+        type: DataTypes.JSON,
         allowNull: true,
       },
       description: {
-        type: sequelize.DataTypes.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       images: {
-        type: sequelize.DataTypes.STRING,
+        type: DataTypes.JSON,
         allowNull: false,
       },
       storeId: {
-        type: sequelize.DataTypes.INTEGER.UNSIGNED,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
     });
   } catch (err) {
-    console.log(chalk.error(`Product ORM Model Error: ${err.message}`));
+    console.error(chalk.red(`Product ORM Model Error: ${err.message}`));
     throw err;
   }
 };

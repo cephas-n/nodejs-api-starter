@@ -1,9 +1,10 @@
 const express = require("express");
 const fetchAllProducts = require("../controllers/products/fetchAllProducts");
 const fetchAllStores = require("../controllers/stores/fetchAllStores");
+const createProduct = require("../controllers/products/createProduct");
 const router = express.Router();
 
-router.get("/products", fetchAllProducts);
+router.route("/products").get(fetchAllProducts).post(createProduct);
 
 router.get("/stores", fetchAllStores);
 

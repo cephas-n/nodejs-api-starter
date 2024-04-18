@@ -9,9 +9,9 @@ const seeder = async () => {
   await Product().create({
     title: "T-shirt",
     price: 20,
-    labels: "fashion,clothes,t-shirts",
+    labels: ["fashion", "clothes", "t-shirts"],
     description: "awesome t-shirt",
-    images: "images/test.jpg",
+    images: ["images/test.jpg"],
     storeId: 1,
   });
 
