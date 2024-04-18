@@ -1,5 +1,5 @@
 const apiError = (err, res) => {
-  console.error(err);
+  if (!res.headerSent) return;
   res.status(500).send("Api Error");
 };
 
