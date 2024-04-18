@@ -1,12 +1,14 @@
 const { ValidationErrorItem } = require("sequelize");
 const { ValidationError } = require("yup");
+const { ZodError } = require("zod");
 
 const apiError = (err, res) => {
   if (res.headerSent) return;
   console.error(err);
   switch (true) {
     case err instanceof ValidationError ||
-      err?.errors[0] instanceof ValidationErrorItem:
+      err?.errors[0] instanceof ValidationErrorItem ||
+      err instanceof ZodError:
       const { errors } = err;
       res.status(422).send({ errors });
       break;

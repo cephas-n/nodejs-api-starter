@@ -16,7 +16,8 @@
     "express": "^4.19.2",
     "mysql2": "^3.9.6",
     "sequelize": "^6.37.3",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "minimist": "^1.2.8"
