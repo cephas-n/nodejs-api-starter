@@ -2,6 +2,7 @@ const z = require("zod");
 const User = require("../../models/User");
 const apiError = require("../../exceptions/apiError");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 
 const authenticationSchema = z
   .object({
@@ -20,17 +21,19 @@ const authenticateUser = async (req, res) => {
 
     await authenticationSchema.parseAsync(body);
 
-    const { email } = body;
+    const { email, password } = body;
 
-    const { createdAt, updatedAt } = await User().findOne({ email });
+    const user = await User().findOne({ where: { email } });
 
-    const token = jwt.sign(
-      { email, createdAt, updatedAt },
-      process.env.JWT_SECRET,
-      {
-        expiresIn: process.env.JWT_TTL || 60 * 120,
-      }
-    );
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      res.sendStatus(401);
+      return;
+    }
+
+    const expiresIn = +process.env.JWT_TTL || 120 * 60;
+    const token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {
+      expiresIn,
+    });
 
     res.status(200).send({ token });
   } catch (err) {

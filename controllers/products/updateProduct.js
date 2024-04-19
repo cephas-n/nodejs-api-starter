@@ -5,7 +5,7 @@ const zod = require("zod");
 const productSchema = zod.object({
   title: zod.string().max(255).min(1).optional(),
   price: zod.number().min(0).optional(),
-  labels: zod.array(zod.string()).min(1).optional(),
+  labels: zod.array(zod.string()).optional(),
   images: zod.array(zod.string()).min(1).optional(),
   description: zod.string().max(255).min(1).optional(),
 });
@@ -21,7 +21,7 @@ const updateProduct = async (req, res) => {
     const product = await Product().findByPk(req.params.id);
 
     if (!product) {
-      res.sendStatus(404);
+      return res.sendStatus(404);
     }
 
     const updated = await product.update({
@@ -32,7 +32,7 @@ const updateProduct = async (req, res) => {
       images,
     });
 
-    res.send(updated);
+    return res.send(updated);
   } catch (err) {
     apiError(err, res);
   }

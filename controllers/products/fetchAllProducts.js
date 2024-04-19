@@ -4,7 +4,8 @@ const Product = require("../../models/Product");
 const fetchAllProducts = async (req, res) => {
   try {
     const products = await Product().findAll();
-    res.send({ products });
+    
+    return res.send({ products });
   } catch (err) {
     apiError(err, res);
   }

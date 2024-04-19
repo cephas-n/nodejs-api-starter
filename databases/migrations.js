@@ -1,4 +1,3 @@
-const dotenv = require("dotenv").config();
 const chalk = require("chalk");
 const Product = require("../models/Product");
 const db = require("../config/db");
@@ -7,6 +6,9 @@ const minimist = require("minimist");
 const seeder = require("./seeder");
 const Store = require("../models/Store");
 const User = require("../models/User");
+const loadEvironmentVariables = require("../utils/loadEnvironmentVariables");
+
+loadEvironmentVariables();
 
 const args = minimist(process.argv.slice(2), {
   boolean: true,

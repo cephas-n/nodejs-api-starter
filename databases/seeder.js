@@ -36,7 +36,7 @@ const seeder = async () => {
     }
 
     await User().create({
-      email: "admin@test.com",
+      email: "admin@example.com",
       username: "admin",
       password: hash,
     });

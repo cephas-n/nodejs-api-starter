@@ -7,10 +7,10 @@ const fetchProductById = async (req, res) => {
     const product = await Product().findByPk(id);
 
     if (!product) {
-      res.sendStatus(404);
+      return res.sendStatus(404);
     }
 
-    res.status(200).send({ product });
+    return res.status(200).send({ product });
   } catch (err) {
     apiError(err, res);
   }

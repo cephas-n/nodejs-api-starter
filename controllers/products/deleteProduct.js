@@ -8,7 +8,7 @@ const deleteProduct = async (req, res) => {
     const product = await Product().findByPk(id);
 
     if (!product) {
-      res.sendStatus(404);
+      return res.sendStatus(404);
     }
 
     await product.destroy();

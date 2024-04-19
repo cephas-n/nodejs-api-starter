@@ -9,7 +9,6 @@ const auth = (req, res, next) => {
     }
     const [scheme = "", token = authorizationHeader] =
       authorizationHeader.split(" ");
-    console.log(token);
 
     const user = jwt.verify(token, process.env.JWT_SECRET);
 

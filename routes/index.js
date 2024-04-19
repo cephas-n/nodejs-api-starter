@@ -7,7 +7,6 @@ const deleteProduct = require("../controllers/products/deleteProduct");
 const fetchProductById = require("../controllers/products/fetchProductById");
 const router = express.Router();
 
-
 router.route("/products/").get(fetchAllProducts).post(createProduct);
 
 router

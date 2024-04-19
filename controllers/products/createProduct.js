@@ -7,7 +7,7 @@ const productSchema = yup
   .object({
     title: yup.string().max(255),
     price: yup.number().min(0),
-    labels: yup.array(yup.string()).min(1),
+    labels: yup.array(yup.string()).optional(),
     images: yup.array(yup.string()).min(1),
     storeId: yup.number().min(1),
     description: yup.string().max(255),
@@ -39,7 +39,7 @@ const createProduct = async (req, res) => {
       storeId,
     });
 
-    res.status(201).send({ product });
+    return res.status(201).send({ product });
   } catch (err) {
     apiError(err, res);
   }
