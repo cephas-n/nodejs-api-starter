@@ -25,13 +25,7 @@
 
 3. To enable authentication uncomment the following line in '`index.js` (optional)
 
-   ```
-    ...
-
-    // app.use(/^(?!\/api\/auth).*$/, auth); // authentication
-
-    ...
-   ```
+   ![alt text](docs/image-1.png)
 
 4. To login make a post request to `http://localhost:9001/api/auth/login`. (optional)
 
