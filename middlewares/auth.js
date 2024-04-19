@@ -7,11 +7,11 @@ const auth = (req, res, next) => {
     if (!authorizationHeader) {
       res.sendStatus(403);
     }
-    const [scheme = "", token = ""] = authorizationHeader.split(" ");
+    const [scheme = "", token = authorizationHeader] =
+      authorizationHeader.split(" ");
     console.log(token);
 
     const user = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(user);
 
     if (!user) {
       res.sendStatus(401);
