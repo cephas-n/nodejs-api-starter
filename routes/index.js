@@ -5,10 +5,8 @@ const createProduct = require("../controllers/products/createProduct");
 const updateProduct = require("../controllers/products/updateProduct");
 const deleteProduct = require("../controllers/products/deleteProduct");
 const fetchProductById = require("../controllers/products/fetchProductById");
-const authenticateUser = require("../controllers/users/authenticateUser");
 const router = express.Router();
 
-router.post("/login", authenticateUser);
 
 router.route("/products/").get(fetchAllProducts).post(createProduct);
 

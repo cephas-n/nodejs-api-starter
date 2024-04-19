@@ -28,7 +28,7 @@ const authenticateUser = async (req, res) => {
       { email, createdAt, updatedAt },
       process.env.JWT_SECRET,
       {
-        expiresIn: 1,
+        expiresIn: process.env.JWT_TTL || 60 * 120,
       }
     );
 
